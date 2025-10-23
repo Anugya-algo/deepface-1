@@ -115,10 +115,10 @@ def download_all_models_in_one_shot() -> None:
     from deepface.models.facial_recognition.SFace import WEIGHTS_URL as SFACE_WEIGHTS
     from deepface.models.facial_recognition.GhostFaceNet import WEIGHTS_URL as GHOSTFACENET_WEIGHTS
     from deepface.models.facial_recognition.Dlib import WEIGHT_URL as DLIB_FR_WEIGHTS
-    from deepface.models.demography.Age import WEIGHTS_URL as AGE_WEIGHTS
-    from deepface.models.demography.Gender import WEIGHTS_URL as GENDER_WEIGHTS
-    from deepface.models.demography.Race import WEIGHTS_URL as RACE_WEIGHTS
-    from deepface.models.demography.Emotion import WEIGHTS_URL as EMOTION_WEIGHTS
+    # from deepface.models.demography.Age import WEIGHTS_URL as AGE_WEIGHTS
+    # from deepface.models.demography.Gender import WEIGHTS_URL as GENDER_WEIGHTS
+    # from deepface.models.demography.Race import WEIGHTS_URL as RACE_WEIGHTS
+    # from deepface.models.demography.Emotion import WEIGHTS_URL as EMOTION_WEIGHTS
     from deepface.models.spoofing.FasNet import (
         FIRST_WEIGHTS_URL as FASNET_1ST_WEIGHTS,
         SECOND_WEIGHTS_URL as FASNET_2ND_WEIGHTS,
@@ -152,10 +152,10 @@ def download_all_models_in_one_shot() -> None:
         },
         DLIB_FR_WEIGHTS,
         # demography
-        AGE_WEIGHTS,
-        GENDER_WEIGHTS,
-        RACE_WEIGHTS,
-        EMOTION_WEIGHTS,
+        # AGE_WEIGHTS,
+        # GENDER_WEIGHTS,
+        # RACE_WEIGHTS,
+        # EMOTION_WEIGHTS,
         # spoofing
         FASNET_1ST_WEIGHTS,
         FASNET_2ND_WEIGHTS,

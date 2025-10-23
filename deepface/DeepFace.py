@@ -172,108 +172,108 @@ def verify(
     )
 
 
-def analyze(
-    img_path: Union[str, np.ndarray, IO[bytes], List[str], List[np.ndarray], List[IO[bytes]]],
-    actions: Union[tuple, list] = ("emotion", "age", "gender", "race"),
-    enforce_detection: bool = True,
-    detector_backend: str = "opencv",
-    align: bool = True,
-    expand_percentage: int = 0,
-    silent: bool = False,
-    anti_spoofing: bool = False,
-) -> Union[List[Dict[str, Any]], List[List[Dict[str, Any]]]]:
-    """
-    Analyze facial attributes such as age, gender, emotion, and race in the provided image.
-    Args:
-        img_path (str, np.ndarray, IO[bytes], list): The exact path to the image, a numpy array
-            in BGR format, a file object that supports at least `.read` and is opened in binary
-            mode, or a base64 encoded image. If the source image contains multiple faces,
-            the result will include information for each detected face.
-
-        actions (tuple): Attributes to analyze. The default is ('age', 'gender', 'emotion', 'race').
-            You can exclude some of these attributes from the analysis if needed.
-
-        enforce_detection (boolean): If no face is detected in an image, raise an exception.
-            Set to False to avoid the exception for low-resolution images (default is True).
-
-        detector_backend (string): face detector backend. Options: 'opencv', 'retinaface',
-            'mtcnn', 'ssd', 'dlib', 'mediapipe', 'yolov8', 'yolov11n',  'yolov11s', 'yolov11m',
-            'centerface' or 'skip' (default is opencv).
-
-        distance_metric (string): Metric for measuring similarity. Options: 'cosine',
-            'euclidean', 'euclidean_l2', 'angular' (default is cosine).
-
-        align (boolean): Perform alignment based on the eye positions (default is True).
-
-        expand_percentage (int): expand detected facial area with a percentage (default is 0).
-
-        silent (boolean): Suppress or allow some log messages for a quieter analysis process
-            (default is False).
-
-        anti_spoofing (boolean): Flag to enable anti spoofing (default is False).
-
-    Returns:
-        (List[List[Dict[str, Any]]]): A list of analysis results if received batched image,
-                                      explained below.
-
-        (List[Dict[str, Any]]): A list of dictionaries, where each dictionary represents
-           the analysis results for a detected face. Each dictionary in the list contains the
-           following keys:
-
-        - 'region' (dict): Represents the rectangular region of the detected face in the image.
-            - 'x': x-coordinate of the top-left corner of the face.
-            - 'y': y-coordinate of the top-left corner of the face.
-            - 'w': Width of the detected face region.
-            - 'h': Height of the detected face region.
-
-        - 'age' (float): Estimated age of the detected face.
-
-        - 'face_confidence' (float): Confidence score for the detected face.
-            Indicates the reliability of the face detection.
-
-        - 'dominant_gender' (str): The dominant gender in the detected face.
-            Either "Man" or "Woman".
-
-        - 'gender' (dict): Confidence scores for each gender category.
-            - 'Man': Confidence score for the male gender.
-            - 'Woman': Confidence score for the female gender.
-
-        - 'dominant_emotion' (str): The dominant emotion in the detected face.
-            Possible values include "sad," "angry," "surprise," "fear," "happy,"
-            "disgust," and "neutral"
-
-        - 'emotion' (dict): Confidence scores for each emotion category.
-            - 'sad': Confidence score for sadness.
-            - 'angry': Confidence score for anger.
-            - 'surprise': Confidence score for surprise.
-            - 'fear': Confidence score for fear.
-            - 'happy': Confidence score for happiness.
-            - 'disgust': Confidence score for disgust.
-            - 'neutral': Confidence score for neutrality.
-
-        - 'dominant_race' (str): The dominant race in the detected face.
-            Possible values include "indian," "asian," "latino hispanic,"
-            "black," "middle eastern," and "white."
-
-        - 'race' (dict): Confidence scores for each race category.
-            - 'indian': Confidence score for Indian ethnicity.
-            - 'asian': Confidence score for Asian ethnicity.
-            - 'latino hispanic': Confidence score for Latino/Hispanic ethnicity.
-            - 'black': Confidence score for Black ethnicity.
-            - 'middle eastern': Confidence score for Middle Eastern ethnicity.
-            - 'white': Confidence score for White ethnicity.
-    """
-    return demography.analyze(
-        img_path=img_path,
-        actions=actions,
-        enforce_detection=enforce_detection,
-        detector_backend=detector_backend,
-        align=align,
-        expand_percentage=expand_percentage,
-        silent=silent,
-        anti_spoofing=anti_spoofing,
-    )
-
+# def analyze(
+    # img_path: Union[str, np.ndarray, IO[bytes], List[str], List[np.ndarray], List[IO[bytes]]],
+    # actions: Union[tuple, list] = ("emotion", "age", "gender", "race"),
+    # enforce_detection: bool = True,
+    # detector_backend: str = "opencv",
+    # align: bool = True,
+    # expand_percentage: int = 0,
+    # silent: bool = False,
+    # anti_spoofing: bool = False,
+# ) -> Union[List[Dict[str, Any]], List[List[Dict[str, Any]]]]:
+    # """
+    # Analyze facial attributes such as age, gender, emotion, and race in the provided image.
+    # Args:
+        # img_path (str, np.ndarray, IO[bytes], list): The exact path to the image, a numpy array
+            # in BGR format, a file object that supports at least `.read` and is opened in binary
+            # mode, or a base64 encoded image. If the source image contains multiple faces,
+            # the result will include information for each detected face.
+# 
+        # actions (tuple): Attributes to analyze. The default is ('age', 'gender', 'emotion', 'race').
+            # You can exclude some of these attributes from the analysis if needed.
+# 
+        # enforce_detection (boolean): If no face is detected in an image, raise an exception.
+            # Set to False to avoid the exception for low-resolution images (default is True).
+# 
+        # detector_backend (string): face detector backend. Options: 'opencv', 'retinaface',
+            # 'mtcnn', 'ssd', 'dlib', 'mediapipe', 'yolov8', 'yolov11n',  'yolov11s', 'yolov11m',
+            # 'centerface' or 'skip' (default is opencv).
+# 
+        # distance_metric (string): Metric for measuring similarity. Options: 'cosine',
+            # 'euclidean', 'euclidean_l2', 'angular' (default is cosine).
+# 
+        # align (boolean): Perform alignment based on the eye positions (default is True).
+# 
+        # expand_percentage (int): expand detected facial area with a percentage (default is 0).
+# 
+        # silent (boolean): Suppress or allow some log messages for a quieter analysis process
+            # (default is False).
+# 
+        # anti_spoofing (boolean): Flag to enable anti spoofing (default is False).
+# 
+    # Returns:
+        # (List[List[Dict[str, Any]]]): A list of analysis results if received batched image,
+                                    #   explained below.
+# 
+        # (List[Dict[str, Any]]): A list of dictionaries, where each dictionary represents
+        #    the analysis results for a detected face. Each dictionary in the list contains the
+        #    following keys:
+# 
+        # - 'region' (dict): Represents the rectangular region of the detected face in the image.
+            # - 'x': x-coordinate of the top-left corner of the face.
+            # - 'y': y-coordinate of the top-left corner of the face.
+            # - 'w': Width of the detected face region.
+            # - 'h': Height of the detected face region.
+# 
+        # - 'age' (float): Estimated age of the detected face.
+# 
+        # - 'face_confidence' (float): Confidence score for the detected face.
+            # Indicates the reliability of the face detection.
+# 
+        # - 'dominant_gender' (str): The dominant gender in the detected face.
+            # Either "Man" or "Woman".
+# 
+        # - 'gender' (dict): Confidence scores for each gender category.
+            # - 'Man': Confidence score for the male gender.
+            # - 'Woman': Confidence score for the female gender.
+# 
+        # - 'dominant_emotion' (str): The dominant emotion in the detected face.
+            # Possible values include "sad," "angry," "surprise," "fear," "happy,"
+            # "disgust," and "neutral"
+# 
+        # - 'emotion' (dict): Confidence scores for each emotion category.
+            # - 'sad': Confidence score for sadness.
+            # - 'angry': Confidence score for anger.
+            # - 'surprise': Confidence score for surprise.
+            # - 'fear': Confidence score for fear.
+            # - 'happy': Confidence score for happiness.
+            # - 'disgust': Confidence score for disgust.
+            # - 'neutral': Confidence score for neutrality.
+# 
+        # - 'dominant_race' (str): The dominant race in the detected face.
+            # Possible values include "indian," "asian," "latino hispanic,"
+            # "black," "middle eastern," and "white."
+# 
+        # - 'race' (dict): Confidence scores for each race category.
+            # - 'indian': Confidence score for Indian ethnicity.
+            # - 'asian': Confidence score for Asian ethnicity.
+            # - 'latino hispanic': Confidence score for Latino/Hispanic ethnicity.
+            # - 'black': Confidence score for Black ethnicity.
+            # - 'middle eastern': Confidence score for Middle Eastern ethnicity.
+            # - 'white': Confidence score for White ethnicity.
+    # """
+    # return demography.analyze(
+        # img_path=img_path,
+        # actions=actions,
+        # enforce_detection=enforce_detection,
+        # detector_backend=detector_backend,
+        # align=align,
+        # expand_percentage=expand_percentage,
+        # silent=silent,
+        # anti_spoofing=anti_spoofing,
+    # )
+# 
 
 def find(
     img_path: Union[str, np.ndarray, IO[bytes]],

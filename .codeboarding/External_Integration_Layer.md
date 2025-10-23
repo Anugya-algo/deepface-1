@@ -76,8 +76,6 @@ This component specializes in processing real-time video streams for continuous 
 
 
 
-
-
 **Related Classes/Methods**:
 
 

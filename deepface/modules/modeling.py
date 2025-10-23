@@ -61,12 +61,12 @@ AVAILABLE_MODELS: Final[AvailableModels] = {
     "spoofing": {
         "Fasnet": FasNet.Fasnet,
     },
-    "facial_attribute": {
-        "Emotion": Emotion.EmotionClient,
-        "Age": Age.ApparentAgeClient,
-        "Gender": Gender.GenderClient,
-        "Race": Race.RaceClient,
-    },
+    # "facial_attribute": {
+        # "Emotion": Emotion.EmotionClient,
+        # "Age": Age.ApparentAgeClient,
+        # "Gender": Gender.GenderClient,
+        # "Race": Race.RaceClient,
+    # },
     "face_detector": {
         "opencv": OpenCv.OpenCvClient,
         "mtcnn": MtCnn.MtCnnClient,
