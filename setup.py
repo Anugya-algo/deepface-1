@@ -13,8 +13,8 @@ with open("package_info.json", "r", encoding="utf-8") as f:
 setuptools.setup(
     name="deepface",
     version=package_info["version"],
-    author="Sefik Ilkin Serengil",
-    author_email="serengil@gmail.com",
+    author="Anugya",
+    author_email="findanugya@gmail.com",
     description=(
         "A Lightweight Face Recognition and Facial Attribute Analysis Framework"
         " (Age, Gender, Emotion, Race) for Python"
@@ -22,7 +22,7 @@ setuptools.setup(
     data_files=[("", ["README.md", "requirements.txt", "package_info.json"])],
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/serengil/deepface",
+    url="https://github.com/Anugya-algo/deepface",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

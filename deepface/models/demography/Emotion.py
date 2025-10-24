@@ -34,7 +34,7 @@ logger = Logger()
 
 # pylint: disable=line-too-long, disable=too-few-public-methods
 
-WEIGHTS_URL = "https://github.com/serengil/deepface_models/releases/download/v1.0/facial_expression_model_weights.h5"
+WEIGHTS_URL = "https://github.com/Anugya-algo/deepface_models/releases/download/v1.0/facial_expression_model_weights.h5"
 
 
 class EmotionClient(Demography):
